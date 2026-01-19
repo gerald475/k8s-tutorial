@@ -38,6 +38,19 @@ app.post("/submit", async (req, res) => {
     res.send("Data saved successfully!");
 });
 
+// View database contents (users)
+app.get("/db/users", async (req, res) => {
+    try {
+        const users = await db.collection("users").find({}).toArray();
+        res.json({
+            count: users.length,
+            users: users
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });

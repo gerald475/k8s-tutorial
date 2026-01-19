@@ -15,5 +15,19 @@
 
         <button type="submit">Save</button>
     </form>
+
+    <button onclick="viewDb()">View DB (JSON)</button>
+    
+    <pre id="dbOutput"></pre>
+    
+    <script>
+        async function viewDb() {
+            const res = await fetch("/db/users");
+            const data = await res.json();
+
+            document.getElementById("dbOutput").textContent =
+                JSON.stringify(data, null, 2);
+        }
+    </script>
 </body>
 </html>
