@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
@@ -10,6 +11,7 @@ const PORT = 3000;
 const MONGO_URL = process.env.MONGO_URL;
 const DB_NAME = "myapp";
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve frontend
