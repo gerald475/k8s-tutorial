@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 // MongoDB config
-const MONGO_URL = process.env.MONGO_URI || "mongodb://localhost:27017";
+const MONGO_URL = process.env.MONGO_URL;
 const DB_NAME = "myapp";
 
 app.use(bodyParser.urlencoded({ extended: true }));
